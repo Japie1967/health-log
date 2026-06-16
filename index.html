@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1b3a4b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Health Log</title>
+
+<link rel="apple-touch-icon" sizes="192x192" href="data:image/png;base64,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">
+<link rel="shortcut icon" href="data:image/png;base64,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" type="image/png">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Health Log","short_name":"Health Log","display":"standalone","background_color":"%231b3a4b","theme_color":"%231b3a4b","start_url":".","icons":[{"src":"data:image/png;base64,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","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"data:image/png;base64,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","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#11262f;
+    --deep:#1b3a4b;
+    --teal:#2f6f7e;
+    --mist:#eef3f3;
+    --paper:#f7f9f8;
+    --line:#d4dddc;
+    --coral:#c8553d;
+    --amber:#d9a441;
+    --green:#3f7d5b;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.45;
+    padding-bottom:84px;
+  }
+  /* Header */
+  header{
+    background:var(--deep);
+    color:#fff;
+    padding:18px 20px 16px;
+    position:sticky;top:0;z-index:40;
+  }
+  header .eyebrow{
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    opacity:.65;font-weight:600;
+  }
+  header h1{
+    font-size:23px;font-weight:700;letter-spacing:-.01em;margin-top:2px;
+    display:flex;align-items:baseline;gap:9px;
+  }
+  header h1 .pulse{
+    font-size:13px;font-weight:500;opacity:.7;letter-spacing:0;
+  }
+  /* Views */
+  main{padding:16px 16px 8px;max-width:640px;margin:0 auto}
+  .view{display:none;animation:fade .25s ease}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .section-label{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin:4px 2px 12px;
+  }
+
+  /* Cards */
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:16px;
+  }
+  .card h2{font-size:16px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .card .hint{font-size:13px;color:#5d6f72;margin-bottom:14px}
+  .chip{
+    display:inline-block;width:10px;height:10px;border-radius:3px;
+  }
+  .chip.bp{background:var(--coral)}
+  .chip.gl{background:var(--teal)}
+  .chip.st{background:var(--amber)}
+
+  label{display:block;font-size:13px;font-weight:600;color:#3a4d51;margin-bottom:6px}
+  .row{display:flex;gap:10px}
+  .row > div{flex:1}
+  input[type=number],input[type=date],input[type=datetime-local],input[type=email]{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:11px;
+    padding:13px 12px;
+    font-size:17px;
+    color:var(--ink);
+    font-family:inherit;
+    -moz-appearance:textfield;
+  }
+  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  input:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal)}
+  .field{margin-bottom:14px}
+  .unit{font-size:12px;font-weight:500;color:#7a8a8c;margin-left:4px}
+  input[type=text]{
+    width:100%;border:1px solid var(--line);background:var(--paper);
+    border-radius:11px;padding:13px 12px;font-size:16px;color:var(--ink);font-family:inherit;
+  }
+  input[type=text]:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal)}
+  .quicknotes{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+  .qn{
+    background:var(--mist);color:var(--teal);font-weight:600;font-size:12.5px;
+    padding:7px 12px;border-radius:18px;border:1px solid transparent;
+  }
+  .qn:active{background:var(--teal);color:#fff}
+  td.note{color:#5d6f72;font-size:12px;font-style:italic;white-space:normal;max-width:160px}
+
+  button{font-family:inherit;cursor:pointer;border:none}
+  .btn{
+    width:100%;
+    background:var(--deep);
+    color:#fff;
+    font-size:16px;font-weight:600;
+    padding:14px;border-radius:12px;
+    transition:transform .08s ease,background .15s;
+  }
+  .btn:active{transform:scale(.985)}
+  .btn.coral{background:var(--coral)}
+  .btn.teal{background:var(--teal)}
+  .btn.amber{background:var(--amber);color:#2a2008}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--teal)}
+  .btn.sm{width:auto;padding:10px 16px;font-size:14px}
+
+  .toast{
+    position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;
+    font-size:14px;font-weight:500;opacity:0;pointer-events:none;
+    transition:all .3s ease;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* Dashboard */
+  .daterow{display:flex;gap:10px;margin-bottom:16px}
+  .daterow > div{flex:1}
+  .daterow label{font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+  .presets{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .preset{
+    background:var(--mist);color:var(--teal);font-weight:600;font-size:13px;
+    padding:8px 13px;border-radius:20px;
+  }
+  .preset.on{background:var(--teal);color:#fff}
+
+  .filterbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .filt{
+    background:var(--white);border:1px solid var(--line);color:#4a5b5e;
+    font-weight:600;font-size:13px;padding:8px 13px;border-radius:20px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .filt.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+  .filt.on .chip{outline:1px solid rgba(255,255,255,.5)}
+  .reccount{
+    font-size:13px;color:#5d6f72;margin:0 2px 10px;display:flex;
+    justify-content:space-between;align-items:center;
+  }
+  .sortbtn{
+    background:var(--mist);color:var(--teal);font-weight:600;font-size:12.5px;
+    padding:6px 12px;border-radius:16px;display:flex;align-items:center;gap:5px;
+  }
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  .stat{
+    background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px;
+  }
+  .stat .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7a8a8c;font-weight:700;display:flex;align-items:center;gap:6px}
+  .stat .big{font-size:26px;font-weight:700;margin-top:6px;letter-spacing:-.02em}
+  .stat .sub{font-size:12px;color:#7a8a8c;margin-top:1px}
+  .stat .big small{font-size:13px;font-weight:500;color:#7a8a8c}
+
+  /* Table */
+  .logwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:440px}
+  th{
+    text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:#7a8a8c;font-weight:700;padding:8px 8px;border-bottom:2px solid var(--line);
+    white-space:nowrap;
+  }
+  td{padding:9px 8px;border-bottom:1px solid var(--mist);white-space:nowrap}
+  td.dt{color:#5d6f72;font-size:12px}
+  .del{color:var(--coral);font-size:18px;background:none;padding:2px 6px;line-height:1}
+  .edit{color:var(--teal);font-size:12px;font-weight:700;background:none;padding:4px 8px;border:1px solid var(--line);border-radius:8px}
+  .edit:active{background:var(--teal);color:#fff}
+  .empty{text-align:center;color:#8a999b;padding:30px 10px;font-size:14px}
+
+  .footer-note{text-align:center;font-size:12px;color:#9aa7a8;padding:6px 20px 16px;line-height:1.5}
+
+  /* Bottom nav */
+  nav{
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    display:flex;z-index:50;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  nav button{
+    flex:1;background:none;padding:10px 4px 12px;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    color:#90a0a2;font-size:11px;font-weight:600;
+  }
+  nav button.on{color:var(--deep)}
+  nav button svg{width:23px;height:23px}
+  nav button.on svg{stroke:var(--deep)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Daily Record</div>
+  <h1>Health Log <span class="pulse" id="todayLabel"></span></h1>
+</header>
+
+<main>
+  <!-- ============ LOG VIEW ============ -->
+  <section class="view active" id="view-log">
+    <p class="section-label">Add a reading</p>
+
+    <div class="card">
+      <h2><span class="chip bp"></span> Blood Pressure</h2>
+      <p class="hint">Systolic, diastolic and pulse.</p>
+      <div class="row">
+        <div class="field"><label>Systolic</label><input type="number" id="sys" inputmode="numeric" placeholder="120"></div>
+        <div class="field"><label>Diastolic</label><input type="number" id="dia" inputmode="numeric" placeholder="80"></div>
+        <div class="field"><label>Pulse</label><input type="number" id="pul" inputmode="numeric" placeholder="70"></div>
+      </div>
+      <div class="field"><label>Date &amp; time</label><input type="datetime-local" id="bpTime"></div>
+      <div class="field">
+        <label>Note <span class="unit">optional</span></label>
+        <input type="text" id="bpNote" placeholder="e.g. before breakfast" maxlength="120">
+        <div class="quicknotes" data-target="bpNote">
+          <button type="button" class="qn">Before meal</button>
+          <button type="button" class="qn">After meal</button>
+          <button type="button" class="qn">Morning</button>
+          <button type="button" class="qn">Evening</button>
+          <button type="button" class="qn">Resting</button>
+        </div>
+      </div>
+      <button class="btn coral" onclick="addBP()">Save blood pressure</button>
+    </div>
+
+    <div class="card">
+      <h2><span class="chip gl"></span> Glucose</h2>
+      <p class="hint">Blood sugar reading.</p>
+      <div class="field"><label>Glucose <span class="unit">mmol/L</span></label><input type="number" step="0.1" id="glu" inputmode="decimal" placeholder="5.5"></div>
+      <div class="field"><label>Date &amp; time</label><input type="datetime-local" id="glTime"></div>
+      <div class="field">
+        <label>Note <span class="unit">optional</span></label>
+        <input type="text" id="glNote" placeholder="e.g. 2 hrs after lunch" maxlength="120">
+        <div class="quicknotes" data-target="glNote">
+          <button type="button" class="qn">Fasting</button>
+          <button type="button" class="qn">Before meal</button>
+          <button type="button" class="qn">After meal</button>
+          <button type="button" class="qn">Bedtime</button>
+        </div>
+      </div>
+      <button class="btn teal" onclick="addGL()">Save glucose</button>
+    </div>
+
+    <div class="card">
+      <h2><span class="chip st"></span> Steps</h2>
+      <p class="hint">Total steps for a day.</p>
+      <div class="row">
+        <div class="field"><label>Steps</label><input type="number" id="stp" inputmode="numeric" placeholder="6000"></div>
+        <div class="field"><label>Date</label><input type="date" id="stDate"></div>
+      </div>
+      <button class="btn amber" onclick="addST()">Save steps</button>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD VIEW ============ -->
+  <section class="view" id="view-dash">
+    <p class="section-label">Summary &amp; averages</p>
+
+    <div class="presets" id="presets">
+      <button class="preset" data-days="7">7 days</button>
+      <button class="preset" data-days="14">14 days</button>
+      <button class="preset" data-days="30">30 days</button>
+      <button class="preset" data-days="90">90 days</button>
+    </div>
+
+    <div class="daterow">
+      <div><label>From</label><input type="date" id="fromDate"></div>
+      <div><label>To</label><input type="date" id="toDate"></div>
+    </div>
+
+    <div class="stat-grid" id="statGrid"></div>
+
+    <button class="btn ghost" onclick="show('records')" style="margin-bottom:8px">See every record</button>
+    <p class="footer-note">Averages are based on the dates above. For the full list of readings, open Records.</p>
+  </section>
+
+  <!-- ============ RECORDS VIEW ============ -->
+  <section class="view" id="view-records">
+    <p class="section-label">All records</p>
+
+    <div class="presets" id="recPresets">
+      <button class="preset" data-days="7">7 days</button>
+      <button class="preset" data-days="14">14 days</button>
+      <button class="preset" data-days="30">30 days</button>
+      <button class="preset" data-days="90">90 days</button>
+      <button class="preset" data-days="all">All</button>
+    </div>
+
+    <div class="daterow">
+      <div><label>From</label><input type="date" id="recFrom"></div>
+      <div><label>To</label><input type="date" id="recTo"></div>
+    </div>
+
+    <div class="filterbar" id="recFilter">
+      <button class="filt on" data-type="all">All</button>
+      <button class="filt" data-type="bp"><span class="chip bp"></span> BP</button>
+      <button class="filt" data-type="gl"><span class="chip gl"></span> Glucose</button>
+      <button class="filt" data-type="st"><span class="chip st"></span> Steps</button>
+    </div>
+
+    <div class="reccount" id="recCount"></div>
+
+    <div class="card" style="padding:14px">
+      <div class="logwrap"><table id="recTable"></table></div>
+    </div>
+
+    <button class="btn ghost" onclick="downloadPDF()" style="margin-bottom:10px">Download PDF</button>
+    <button class="btn" onclick="emailPDF()" style="margin-bottom:8px">Email PDF</button>
+    <p class="footer-note">Your readings are stored only on this phone. Nothing is sent anywhere unless you choose to email a report. The PDF uses the date range selected above.</p>
+
+    <div class="card" style="margin-top:8px">
+      <h2><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg> Data &amp; backup</h2>
+      <p class="hint">Save a copy of all your readings as a CSV file, or load them onto a new phone. This is your safety net — keep the file somewhere safe.</p>
+      <button class="btn" onclick="exportCSV()" style="margin-bottom:10px">Export all data (CSV)</button>
+      <button class="btn ghost" onclick="document.getElementById('csvFile').click()">Import from CSV</button>
+      <input type="file" id="csvFile" accept=".csv,text/csv" style="display:none" onchange="importCSV(this)">
+      <p class="footer-note" style="text-align:left;padding:10px 0 0">Importing <b>adds to</b> what's already here. A reading with the same date &amp; time as an existing one is updated, not duplicated.</p>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button class="on" id="nav-log" onclick="show('log')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    Add
+  </button>
+  <button id="nav-dash" onclick="show('dash')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+    Dashboard
+  </button>
+  <button id="nav-records" onclick="show('records')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    Records
+  </button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- storage ---------- */
+const DB={
+  bp: load('hl_bp'),
+  gl: load('hl_gl'),
+  st: load('hl_st')
+};
+const editing={bp:null,gl:null};   /* original timestamp of record being edited */
+function load(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function save(){
+  localStorage.setItem('hl_bp',JSON.stringify(DB.bp));
+  localStorage.setItem('hl_gl',JSON.stringify(DB.gl));
+  localStorage.setItem('hl_st',JSON.stringify(DB.st));
+}
+
+/* ---------- helpers ---------- */
+function nowLocal(){
+  const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
+  return d.toISOString().slice(0,16);
+}
+function todayLocal(){
+  const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
+  return d.toISOString().slice(0,10);
+}
+function fmtDT(iso){
+  const d=new Date(iso);
+  return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})+' '+
+         d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+}
+function fmtD(iso){
+  return new Date(iso+'T00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1900);
+}
+
+/* ---------- init defaults ---------- */
+document.getElementById('bpTime').value=nowLocal();
+document.getElementById('glTime').value=nowLocal();
+document.getElementById('stDate').value=todayLocal();
+document.getElementById('todayLabel').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+
+/* quick-note chips: tap to set the note field */
+document.querySelectorAll('.quicknotes').forEach(group=>{
+  const target=document.getElementById(group.dataset.target);
+  group.querySelectorAll('.qn').forEach(btn=>{
+    btn.addEventListener('click',()=>{target.value=btn.textContent;target.focus();});
+  });
+});
+
+/* default dashboard range = last 7 days */
+(function(){
+  const to=todayLocal();
+  const f=new Date();f.setDate(f.getDate()-6);f.setMinutes(f.getMinutes()-f.getTimezoneOffset());
+  document.getElementById('fromDate').value=f.toISOString().slice(0,10);
+  document.getElementById('toDate').value=to;
+})();
+
+/* ---------- add records ---------- */
+function addBP(){
+  const s=+document.getElementById('sys').value, d=+document.getElementById('dia').value, p=+document.getElementById('pul').value;
+  const t=document.getElementById('bpTime').value;
+  const note=document.getElementById('bpNote').value.trim();
+  if(!s||!d){toast('Enter systolic and diastolic');return}
+  if(!t){toast('Pick a date & time');return}
+  const existed=editing.bp!==null || DB.bp.some(r=>r.t===t);
+  const orig=editing.bp;
+  DB.bp=DB.bp.filter(r=>r.t!==t && r.t!==orig);   /* drop old version */
+  DB.bp.push({t,s,d,p:p||null,note:note||null});save();
+  editing.bp=null;
+  document.getElementById('sys').value='';document.getElementById('dia').value='';document.getElementById('pul').value='';
+  document.getElementById('bpNote').value='';
+  document.getElementById('bpTime').value=nowLocal();
+  toast(existed?'Blood pressure updated':'Blood pressure saved');
+}
+function addGL(){
+  const g=+document.getElementById('glu').value, t=document.getElementById('glTime').value;
+  const note=document.getElementById('glNote').value.trim();
+  if(!g){toast('Enter a glucose value');return}
+  if(!t){toast('Pick a date & time');return}
+  const existed=editing.gl!==null || DB.gl.some(r=>r.t===t);
+  const orig=editing.gl;
+  DB.gl=DB.gl.filter(r=>r.t!==t && r.t!==orig);   /* drop old version */
+  DB.gl.push({t,g,note:note||null});save();
+  editing.gl=null;
+  document.getElementById('glu').value='';
+  document.getElementById('glNote').value='';
+  document.getElementById('glTime').value=nowLocal();
+  toast(existed?'Glucose updated':'Glucose saved');
+}
+function addST(){
+  const n=+document.getElementById('stp').value, d=document.getElementById('stDate').value;
+  if(!n){toast('Enter a step count');return}
+  if(!d){toast('Pick a date');return}
+  /* one entry per day - overwrite if exists */
+  const i=DB.st.findIndex(x=>x.d===d);
+  if(i>=0)DB.st[i].n=n; else DB.st.push({d,n});
+  save();
+  document.getElementById('stp').value='';
+  toast('Steps saved for '+fmtD(d));
+}
+
+/* ---------- navigation ---------- */
+function show(v){
+  editing.bp=null;editing.gl=null;   /* leaving/entering resets pending edit */
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.getElementById('nav-log').classList.toggle('on',v==='log');
+  document.getElementById('nav-dash').classList.toggle('on',v==='dash');
+  document.getElementById('nav-records').classList.toggle('on',v==='records');
+  if(v==='dash')renderDash();
+  if(v==='records')renderRecords();
+  window.scrollTo(0,0);
+}
+function refreshActive(){
+  if(document.getElementById('view-records').classList.contains('active'))renderRecords();
+  if(document.getElementById('view-dash').classList.contains('active'))renderDash();
+}
+
+/* ---------- date range filtering ---------- */
+function getRange(){
+  return {from:document.getElementById('fromDate').value, to:document.getElementById('toDate').value};
+}
+function getRecRange(){
+  return {from:document.getElementById('recFrom').value, to:document.getElementById('recTo').value};
+}
+function inRange(iso,from,to){
+  const day=iso.slice(0,10);
+  return day>=from && day<=to;
+}
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset');if(!b)return;
+  const days=+b.dataset.days;
+  const to=todayLocal();
+  const f=new Date();f.setDate(f.getDate()-(days-1));f.setMinutes(f.getMinutes()-f.getTimezoneOffset());
+  document.getElementById('fromDate').value=f.toISOString().slice(0,10);
+  document.getElementById('toDate').value=to;
+  renderDash();
+});
+document.getElementById('fromDate').addEventListener('change',renderDash);
+document.getElementById('toDate').addEventListener('change',renderDash);
+
+/* records date range = last 30 days by default */
+(function(){
+  const to=todayLocal();
+  const f=new Date();f.setDate(f.getDate()-29);f.setMinutes(f.getMinutes()-f.getTimezoneOffset());
+  document.getElementById('recFrom').value=f.toISOString().slice(0,10);
+  document.getElementById('recTo').value=to;
+})();
+
+let recFilterType='all';
+let recSortDesc=true;   /* newest first by default */
+
+document.getElementById('recPresets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset');if(!b)return;
+  const v=b.dataset.days;
+  if(v==='all'){
+    document.getElementById('recFrom').value='2000-01-01';
+    document.getElementById('recTo').value=todayLocal();
+  }else{
+    const days=+v;const to=todayLocal();
+    const f=new Date();f.setDate(f.getDate()-(days-1));f.setMinutes(f.getMinutes()-f.getTimezoneOffset());
+    document.getElementById('recFrom').value=f.toISOString().slice(0,10);
+    document.getElementById('recTo').value=to;
+  }
+  renderRecords();
+});
+document.getElementById('recFrom').addEventListener('change',renderRecords);
+document.getElementById('recTo').addEventListener('change',renderRecords);
+document.getElementById('recFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.filt');if(!b)return;
+  recFilterType=b.dataset.type;
+  document.querySelectorAll('#recFilter .filt').forEach(f=>f.classList.toggle('on',f===b));
+  renderRecords();
+});
+
+/* ---------- dashboard render ---------- */
+function gather(range){
+  const {from,to}=range||getRange();
+  const bp=DB.bp.filter(r=>inRange(r.t,from,to)).sort((a,b)=>a.t<b.t?1:-1);
+  const gl=DB.gl.filter(r=>inRange(r.t,from,to)).sort((a,b)=>a.t<b.t?1:-1);
+  const st=DB.st.filter(r=>r.d>=from&&r.d<=to).sort((a,b)=>a.d<b.d?1:-1);
+  return {from,to,bp,gl,st};
+}
+function avg(arr,f){if(!arr.length)return null;return arr.reduce((s,x)=>s+f(x),0)/arr.length}
+
+function renderDash(){
+  const {bp,gl,st}=gather();
+  /* highlight active preset */
+  document.querySelectorAll('.preset').forEach(p=>p.classList.remove('on'));
+
+  /* stats */
+  const sg=document.getElementById('statGrid');
+  const aSys=avg(bp,x=>x.s), aDia=avg(bp,x=>x.d);
+  const aGlu=avg(gl,x=>x.g);
+  const totSteps=st.reduce((s,x)=>s+x.n,0);
+  const avgSteps=st.length?Math.round(totSteps/st.length):null;
+  sg.innerHTML=`
+    <div class="stat">
+      <div class="lbl"><span class="chip bp"></span> Avg BP</div>
+      <div class="big">${aSys?Math.round(aSys)+'/'+Math.round(aDia):'—'}</div>
+      <div class="sub">${bp.length} reading${bp.length===1?'':'s'}</div>
+    </div>
+    <div class="stat">
+      <div class="lbl"><span class="chip gl"></span> Avg Glucose</div>
+      <div class="big">${aGlu?aGlu.toFixed(1):'—'} <small>${aGlu?'mmol/L':''}</small></div>
+      <div class="sub">${gl.length} reading${gl.length===1?'':'s'}</div>
+    </div>
+    <div class="stat">
+      <div class="lbl"><span class="chip st"></span> Total Steps</div>
+      <div class="big">${totSteps?totSteps.toLocaleString():'—'}</div>
+      <div class="sub">${st.length} day${st.length===1?'':'s'} logged</div>
+    </div>
+    <div class="stat">
+      <div class="lbl"><span class="chip st"></span> Avg / Day</div>
+      <div class="big">${avgSteps?avgSteps.toLocaleString():'—'}</div>
+      <div class="sub">steps per day</div>
+    </div>`;
+}
+
+/* ---------- records table ---------- */
+function toggleSort(){
+  recSortDesc=!recSortDesc;
+  renderRecords();
+}
+function renderRecords(){
+  document.querySelectorAll('#recPresets .preset').forEach(p=>p.classList.remove('on'));
+  const {bp,gl,st}=gather(getRecRange());
+
+  /* build a unified row list, honouring the type filter */
+  const rows=[];
+  if(recFilterType==='all'||recFilterType==='bp')
+    bp.forEach(r=>rows.push({sort:r.t,when:fmtDT(r.t),type:'BP',val:`${r.s}/${r.d}${r.p?' · '+r.p+' bpm':''}`,note:r.note,act:`editRec('bp','${r.t}')`,del:`del('bp','${r.t}')`}));
+  if(recFilterType==='all'||recFilterType==='gl')
+    gl.forEach(r=>rows.push({sort:r.t,when:fmtDT(r.t),type:'Glucose',val:`${r.g} mmol/L`,note:r.note,act:`editRec('gl','${r.t}')`,del:`del('gl','${r.t}')`}));
+  if(recFilterType==='all'||recFilterType==='st')
+    st.forEach(r=>rows.push({sort:r.d+'T00:00',when:fmtD(r.d),type:'Steps',val:r.n.toLocaleString(),note:null,act:`editStep('${r.d}')`,del:`delSt('${r.d}')`}));
+
+  rows.sort((a,b)=> recSortDesc ? (a.sort<b.sort?1:-1) : (a.sort>b.sort?1:-1));
+
+  /* count + sort control */
+  const cnt=document.getElementById('recCount');
+  cnt.innerHTML=`<span>${rows.length} record${rows.length===1?'':'s'} shown</span>
+    <button class="sortbtn" onclick="toggleSort()">${recSortDesc?'↓ Newest first':'↑ Oldest first'}</button>`;
+
+  const tbl=document.getElementById('recTable');
+  if(!rows.length){
+    tbl.innerHTML='<tr><td class="empty">No records match. Try a wider date range or a different filter.</td></tr>';
+    return;
+  }
+  let html='<tr><th>When</th><th>Type</th><th>Reading</th><th>Note</th><th colspan="2"></th></tr>';
+  rows.forEach(r=>{
+    html+=`<tr><td class="dt">${r.when}</td><td>${r.type}</td><td>${r.val}</td>
+      <td class="note">${r.note?esc(r.note):'—'}</td>
+      <td><button class="edit" onclick="${r.act}">Edit</button></td>
+      <td><button class="del" onclick="${r.del}">×</button></td></tr>`;
+  });
+  tbl.innerHTML=html;
+}
+
+/* ---------- edit existing records ---------- */
+function editRec(key,t){
+  const r=DB[key].find(x=>x.t===t);
+  if(!r)return;
+  show('log');
+  if(key==='bp'){
+    document.getElementById('sys').value=r.s;
+    document.getElementById('dia').value=r.d;
+    document.getElementById('pul').value=r.p||'';
+    document.getElementById('bpNote').value=r.note||'';
+    document.getElementById('bpTime').value=r.t;
+    editing.bp=r.t;
+    document.getElementById('view-log').scrollIntoView();
+    toast('Editing — change values and Save');
+  }else{
+    document.getElementById('glu').value=r.g;
+    document.getElementById('glNote').value=r.note||'';
+    document.getElementById('glTime').value=r.t;
+    editing.gl=r.t;
+    document.getElementById('glu').scrollIntoView({block:'center'});
+    toast('Editing — change values and Save');
+  }
+}
+function editStep(d){
+  const r=DB.st.find(x=>x.d===d);
+  if(!r)return;
+  show('log');
+  document.getElementById('stp').value=r.n;
+  document.getElementById('stDate').value=r.d;
+  document.getElementById('stp').scrollIntoView({block:'center'});
+  toast('Editing steps for '+fmtD(d));
+}
+function del(key,t){
+  DB[key]=DB[key].filter(r=>r.t!==t);save();refreshActive();toast('Deleted');
+}
+function delSt(d){
+  DB.st=DB.st.filter(r=>r.d!==d);save();refreshActive();toast('Deleted');
+}
+
+/* ---------- PDF ---------- */
+function buildPDF(){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'pt',format:'a4'});
+  const {from,to,bp,gl,st}=gather(getRecRange());
+  const W=doc.internal.pageSize.getWidth();
+  let y=56;
+
+  doc.setFillColor(27,58,75);doc.rect(0,0,W,86,'F');
+  doc.setTextColor(255);doc.setFont('helvetica','bold');doc.setFontSize(20);
+  doc.text('Health Log Report',40,46);
+  doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(200,220,222);
+  doc.text(`${fmtD(from)}  –  ${fmtD(to)}`,40,66);
+  y=120;
+
+  /* summary */
+  const aSys=avg(bp,x=>x.s),aDia=avg(bp,x=>x.d),aGlu=avg(gl,x=>x.g);
+  const totSteps=st.reduce((s,x)=>s+x.n,0);
+  const avgSteps=st.length?Math.round(totSteps/st.length):0;
+  doc.setTextColor(20,40,48);doc.setFont('helvetica','bold');doc.setFontSize(13);
+  doc.text('Summary',40,y);y+=8;
+  doc.setDrawColor(212,221,220);doc.line(40,y,W-40,y);y+=22;
+  doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(50,70,75);
+  const sum=[
+    ['Average blood pressure', aSys?`${Math.round(aSys)}/${Math.round(aDia)} mmHg  (${bp.length} readings)`:'No data'],
+    ['Average glucose', aGlu?`${aGlu.toFixed(1)} mmol/L  (${gl.length} readings)`:'No data'],
+    ['Total steps', totSteps?`${totSteps.toLocaleString()}  over ${st.length} day(s)`:'No data'],
+    ['Average steps/day', avgSteps?avgSteps.toLocaleString():'No data']
+  ];
+  sum.forEach(([k,v])=>{
+    doc.setFont('helvetica','bold');doc.text(k,40,y);
+    doc.setFont('helvetica','normal');doc.text(v,250,y);y+=20;
+  });
+  y+=14;
+
+  /* table helper */
+  function header(title){
+    if(y>760){doc.addPage();y=56}
+    doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(20,40,48);
+    doc.text(title,40,y);y+=8;doc.setDrawColor(212,221,220);doc.line(40,y,W-40,y);y+=18;
+    doc.setFontSize(10);
+  }
+  function rowOut(cols,xs,bold){
+    if(y>800){doc.addPage();y=56}
+    doc.setFont('helvetica',bold?'bold':'normal');
+    doc.setTextColor(bold?90:60,bold?90:70,bold?90:75);
+    cols.forEach((c,i)=>{
+      let txt=String(c);
+      /* last column is notes — clip so it stays on the page */
+      if(i===cols.length-1 && txt.length>30) txt=txt.slice(0,29)+'…';
+      doc.text(txt,xs[i],y);
+    });y+=17;
+  }
+
+  /* BP table */
+  header('Blood Pressure');
+  rowOut(['Date & time','Sys','Dia','Pulse','Note'],[40,210,265,320,385],true);y+=2;
+  doc.setTextColor(60,70,75);
+  if(bp.length)[...bp].reverse().forEach(r=>rowOut([fmtDT(r.t),r.s,r.d,r.p||'—',r.note||''],[40,210,265,320,385]));
+  else rowOut(['No readings','','','',''],[40,210,265,320,385]);
+  y+=18;
+
+  /* Glucose table */
+  header('Glucose (mmol/L)');
+  rowOut(['Date & time','Reading','Note'],[40,210,300],true);y+=2;
+  if(gl.length)[...gl].reverse().forEach(r=>rowOut([fmtDT(r.t),r.g.toFixed(1),r.note||''],[40,210,300]));
+  else rowOut(['No readings','',''],[40,210,300]);
+  y+=18;
+
+  /* Steps table */
+  header('Steps');
+  rowOut(['Date','Steps'],[40,250],true);y+=2;
+  if(st.length)[...st].reverse().forEach(r=>rowOut([fmtD(r.d),r.n.toLocaleString()],[40,250]));
+  else rowOut(['No readings',''],[40,250]);
+
+  /* footer */
+  const pages=doc.internal.getNumberOfPages();
+  for(let i=1;i<=pages;i++){
+    doc.setPage(i);doc.setFontSize(8);doc.setTextColor(150,160,162);
+    doc.text(`Generated ${new Date().toLocaleString('en-GB')}`,40,820);
+    doc.text(`Page ${i} of ${pages}`,W-90,820);
+  }
+  return doc;
+}
+function rangeName(){
+  const {from,to}=getRecRange();
+  return `health-log_${from}_to_${to}.pdf`;
+}
+function downloadPDF(){
+  const {bp,gl,st}=gather(getRecRange());
+  if(!bp.length&&!gl.length&&!st.length){toast('No data in this range');return}
+  buildPDF().save(rangeName());
+  toast('PDF downloaded');
+}
+function emailPDF(){
+  const {from,to,bp,gl,st}=gather(getRecRange());
+  if(!bp.length&&!gl.length&&!st.length){toast('No data in this range');return}
+  /* trigger download so the file is saved, then open email client to attach */
+  const doc=buildPDF();
+  doc.save(rangeName());
+  const subject=encodeURIComponent(`Health Log ${fmtD(from)} – ${fmtD(to)}`);
+  const aSys=avg(bp,x=>x.s),aDia=avg(bp,x=>x.d),aGlu=avg(gl,x=>x.g);
+  const tot=st.reduce((s,x)=>s+x.n,0);
+  const body=encodeURIComponent(
+    `Hello,\n\nMy health readings for ${fmtD(from)} to ${fmtD(to)}:\n\n`+
+    `• Avg blood pressure: ${aSys?Math.round(aSys)+'/'+Math.round(aDia)+' mmHg':'—'}\n`+
+    `• Avg glucose: ${aGlu?aGlu.toFixed(1)+' mmol/L':'—'}\n`+
+    `• Total steps: ${tot?tot.toLocaleString():'—'}\n\n`+
+    `The full PDF report has just been saved to my device — please attach it from Downloads.\n\nThank you.`
+  );
+  setTimeout(()=>{window.location.href=`mailto:?subject=${subject}&body=${body}`;},600);
+  toast('PDF saved — attach it to the email');
+}
+
+/* ---------- CSV backup & restore ---------- */
+function csvCell(v){
+  v=(v===null||v===undefined)?'':String(v);
+  return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v;
+}
+function exportCSV(){
+  if(!DB.bp.length && !DB.gl.length && !DB.st.length){toast('No data to export yet');return}
+  const rows=[['type','datetime','systolic','diastolic','pulse','glucose','steps','note']];
+  DB.bp.forEach(r=>rows.push(['bp',r.t,r.s,r.d,(r.p??''),'','',r.note||'']));
+  DB.gl.forEach(r=>rows.push(['glucose',r.t,'','','',r.g,'',r.note||'']));
+  DB.st.forEach(r=>rows.push(['steps',r.d,'','','','',r.n,'']));
+  const csv=rows.map(row=>row.map(csvCell).join(',')).join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`health-log-backup_${todayLocal()}.csv`;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  toast('Backup CSV downloaded');
+}
+function parseCSVLine(line){
+  const out=[];let cur='';let q=false;
+  for(let i=0;i<line.length;i++){
+    const c=line[i];
+    if(q){
+      if(c==='"'){ if(line[i+1]==='"'){cur+='"';i++;} else q=false; }
+      else cur+=c;
+    }else{
+      if(c==='"')q=true;
+      else if(c===','){out.push(cur);cur='';}
+      else cur+=c;
+    }
+  }
+  out.push(cur);
+  return out;
+}
+function importCSV(input){
+  const file=input.files&&input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(){
+    try{
+      const text=String(reader.result).replace(/\r\n/g,'\n').replace(/\r/g,'\n').trim();
+      const lines=text.split('\n').filter(l=>l.length);
+      if(!lines.length){toast('That file looks empty');input.value='';return}
+      const head=parseCSVLine(lines[0]).map(h=>h.trim().toLowerCase());
+      const idx=n=>head.indexOf(n);
+      const iType=idx('type'),iDT=idx('datetime'),iSys=idx('systolic'),iDia=idx('diastolic'),
+            iPul=idx('pulse'),iGlu=idx('glucose'),iStp=idx('steps'),iNote=idx('note');
+      if(iType<0||iDT<0){toast('Not a Health Log CSV — header not recognised');input.value='';return}
+      let added=0,updated=0,skipped=0;
+      for(let i=1;i<lines.length;i++){
+        const c=parseCSVLine(lines[i]);
+        const type=(c[iType]||'').trim().toLowerCase();
+        const dt=(c[iDT]||'').trim();
+        const note=iNote>=0?(c[iNote]||'').trim():'';
+        if(!dt){skipped++;continue}
+        if(type==='bp'){
+          const s=+c[iSys],d=+c[iDia];
+          const pRaw=(c[iPul]||'').trim();const p=pRaw===''?null:+pRaw;
+          if(!s||!d){skipped++;continue}
+          const ex=DB.bp.findIndex(r=>r.t===dt);
+          const rec={t:dt,s,d,p:(p||p===0)?p:null,note:note||null};
+          if(ex>=0){DB.bp[ex]=rec;updated++;}else{DB.bp.push(rec);added++;}
+        }else if(type==='glucose'||type==='gl'){
+          const g=+c[iGlu];
+          if(!g){skipped++;continue}
+          const ex=DB.gl.findIndex(r=>r.t===dt);
+          const rec={t:dt,g,note:note||null};
+          if(ex>=0){DB.gl[ex]=rec;updated++;}else{DB.gl.push(rec);added++;}
+        }else if(type==='steps'||type==='st'){
+          const n=+c[iStp];const day=dt.slice(0,10);
+          if(!n){skipped++;continue}
+          const ex=DB.st.findIndex(r=>r.d===day);
+          if(ex>=0){DB.st[ex].n=n;updated++;}else{DB.st.push({d:day,n});added++;}
+        }else{skipped++;}
+      }
+      save();refreshActive();
+      let msg=`Imported: ${added} added, ${updated} updated`;
+      if(skipped)msg+=`, ${skipped} skipped`;
+      toast(msg);
+    }catch(e){ toast('Could not read that file'); }
+    input.value='';
+  };
+  reader.onerror=function(){toast('Could not read that file');input.value='';};
+  reader.readAsText(file);
+}
+</script>
+</body>
+</html>
